@@ -121,8 +121,11 @@ def main():
         print()
         
         # Plot the robot (comment out if running in headless environment)
-        print(f"  Would plot robot configuration {i+1}")
-        # robot.plot_robot(theta1, theta2, theta3)
+        try:
+            robot.plot_robot(theta1, theta2, theta3)
+        except Exception as e:
+            print(f"  Could not display plot (headless environment): {e}")
+            print(f"  Robot configuration {i+1} would be plotted here")
 
 
 if __name__ == "__main__":
